@@ -15,6 +15,7 @@ namespace Platformer.Gameplay
     {
         public EnemyController enemy;
         public PlayerController player;
+        public bool goodguys;
 
         PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
@@ -27,7 +28,11 @@ namespace Platformer.Gameplay
                 var enemyHealth = enemy.GetComponent<Health>();
                 if (enemyHealth != null)
                 {
-                    enemyHealth.Decrement();
+                    if (goodguys == true) {
+                        enemyHealth.Increment();
+                    } else {
+                        enemyHealth.Decrement();
+                    }
                     if (!enemyHealth.IsAlive)
                     {
                         Schedule<EnemyDeath>().enemy = enemy;

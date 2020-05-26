@@ -19,6 +19,7 @@ namespace Platformer.Mechanics
         public AudioClip respawnAudio;
         public AudioClip ouchAudio;
         public bool isSpaceWorld = false;
+        public bool goodguys = false;
 
         /// <summary>
         /// Max horizontal speed of the player.
