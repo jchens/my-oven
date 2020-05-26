@@ -43,6 +43,10 @@ namespace Platformer.Mechanics
 
         public Bounds Bounds => collider2d.bounds;
 
+        public bool timeWorld = false;
+
+        bool invert = false;
+
         void Awake()
         {
             health = GetComponent<Health>();
@@ -54,6 +58,10 @@ namespace Platformer.Mechanics
                 Physics2D.gravity = new Vector2(0f, 9.81f);
             }
             animator = GetComponent<Animator>();
+
+            if(timeWorld) {
+                InvokeRepeating("Invert", 10f, 10f);
+            }
         }
 
         protected override void Update()
@@ -61,6 +69,9 @@ namespace Platformer.Mechanics
             if (controlEnabled)
             {
                 move.x = Input.GetAxis("Horizontal");
+                if(invert) {
+                    move.x = -1 * move.x;
+                } 
                 if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
                     jumpState = JumpState.PrepareToJump;
                 else if (Input.GetButtonUp("Jump"))
@@ -138,6 +149,12 @@ namespace Platformer.Mechanics
             animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
 
             targetVelocity = move * maxSpeed;
+        }
+
+        void Invert()
+        {
+            invert = !invert;
+            Debug.Log("hello");
         }
 
         public enum JumpState
