@@ -39,6 +39,7 @@ namespace Platformer.Mechanics
         protected const float minMoveDistance = 0.001f;
         protected const float shellRadius = 0.01f;
 
+        public bool spaceWorld = true;
 
         /// <summary>
         /// Bounce the object's vertical velocity.
@@ -102,10 +103,17 @@ namespace Platformer.Mechanics
         protected virtual void FixedUpdate()
         {
             //if already falling, fall faster than the jump speed, otherwise use normal gravity.
-            if (velocity.y < 0)
-                velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
-            else
-                velocity += Physics2D.gravity * Time.deltaTime * gravityModifier; // fixed jump
+            if (spaceWorld) {
+                if (velocity.y > 0)
+                    velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
+                else
+                    velocity += Physics2D.gravity * Time.deltaTime;
+            } else {
+                if (velocity.y < 0)
+                    velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
+                else
+                    velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
+            }
 
             velocity.x = targetVelocity.x;
 
@@ -136,6 +144,9 @@ namespace Platformer.Mechanics
                 for (var i = 0; i < count; i++)
                 {
                     var currentNormal = hitBuffer[i].normal;
+                    if (spaceWorld) {
+                        currentNormal = -hitBuffer[i].normal;
+                    }
 
                     //is this surface flat enough to land on?
                     if (currentNormal.y > minGroundNormalY)
@@ -157,12 +168,21 @@ namespace Platformer.Mechanics
                             //slower velocity if moving against the normal (up a hill).
                             velocity = velocity - projection * currentNormal;
                         }
+
+                        if (spaceWorld) {
+                            velocity.y = 0;
+                        }
                     }
                     else
                     {
                         //We are airborne, but hit something, so cancel vertical up and horizontal velocity.
-                        velocity.x *= 0; // changed to let you hit head better
-                        velocity.y = Mathf.Min(velocity.y, 0);
+                        velocity.x *= 0;
+                        if (spaceWorld) {
+                            velocity.y = Mathf.Max(velocity.y, 0);
+                        }
+                        else {
+                            velocity.y = Mathf.Min(velocity.y, 0);
+                        }
                     }
                     //remove shellDistance from actual move distance.
                     var modifiedDistance = hitBuffer[i].distance - shellRadius;

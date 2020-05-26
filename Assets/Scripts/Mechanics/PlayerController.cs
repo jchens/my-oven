@@ -17,6 +17,7 @@ namespace Platformer.Mechanics
         public AudioClip jumpAudio;
         public AudioClip respawnAudio;
         public AudioClip ouchAudio;
+        public bool isSpaceWorld = true;
 
         /// <summary>
         /// Max horizontal speed of the player.
@@ -48,6 +49,10 @@ namespace Platformer.Mechanics
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            if (isSpaceWorld) {
+                spriteRenderer.flipY = true;
+                Physics2D.gravity = new Vector2(0f, 9.81f);
+            }
             animator = GetComponent<Animator>();
         }
 
@@ -107,6 +112,9 @@ namespace Platformer.Mechanics
             if (jump && IsGrounded)
             {
                 velocity.y = jumpTakeOffSpeed * model.jumpModifier;
+                 if (isSpaceWorld) {
+                    velocity.y *= -1;
+                }
                 jump = false;
             }
             else if (stopJump)
@@ -115,6 +123,9 @@ namespace Platformer.Mechanics
                 if (velocity.y > 0)
                 {
                     velocity.y = velocity.y * model.jumpDeceleration;
+                     if (isSpaceWorld) {
+                        velocity.y *= -1;
+                    }
                 }
             }
 
