@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Platformer.Mechanics
 {
@@ -39,7 +40,7 @@ namespace Platformer.Mechanics
         protected const float minMoveDistance = 0.001f;
         protected const float shellRadius = 0.01f;
 
-        public bool spaceWorld = true;
+        public bool spaceWorld = false;
 
         /// <summary>
         /// Bounce the object's vertical velocity.
@@ -87,6 +88,9 @@ namespace Platformer.Mechanics
             contactFilter.useTriggers = false;
             contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
             contactFilter.useLayerMask = true;
+
+            Scene currentScene = SceneManager.GetActiveScene();
+            spaceWorld = currentScene.name == "space-1";
         }
 
         protected virtual void Update()
