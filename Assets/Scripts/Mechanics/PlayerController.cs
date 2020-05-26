@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Platformer.Gameplay;
 using static Platformer.Core.Simulation;
 using Platformer.Model;
@@ -17,7 +18,7 @@ namespace Platformer.Mechanics
         public AudioClip jumpAudio;
         public AudioClip respawnAudio;
         public AudioClip ouchAudio;
-        public bool isSpaceWorld = true;
+        public bool isSpaceWorld = false;
 
         /// <summary>
         /// Max horizontal speed of the player.
@@ -53,6 +54,8 @@ namespace Platformer.Mechanics
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            Scene currentScene = SceneManager.GetActiveScene();
+            isSpaceWorld = currentScene.name == "space-1";
             if (isSpaceWorld) {
                 spriteRenderer.flipY = true;
                 Physics2D.gravity = new Vector2(0f, 9.81f);
