@@ -49,13 +49,13 @@ namespace Platformer.UI
             if (show)
             {
                 Time.timeScale = 0;
-                mainMenu.gameObject.SetActive(true);
+                // mainMenu.gameObject.SetActive(true);
                 foreach (var i in gamePlayCanvasii) i.gameObject.SetActive(false);
             }
             else
             {
                 Time.timeScale = 1;
-                mainMenu.gameObject.SetActive(false);
+                // mainMenu.gameObject.SetActive(false);
                 foreach (var i in gamePlayCanvasii) i.gameObject.SetActive(true);
             }
             this.showMainCanvas = show;
