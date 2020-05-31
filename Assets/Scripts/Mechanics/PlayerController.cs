@@ -15,21 +15,24 @@ namespace Platformer.Mechanics
     /// </summary>
     public class PlayerController : KinematicObject
     {
+        // audio
         public AudioClip jumpAudio;
-
         public AudioClip respawnAudio;
         public AudioClip ouchAudio;
+
+        // worlds
         public bool isSpaceWorld = false;
         public bool goodguys = false;
+        public bool timeWorld = false;
 
         /// <summary>
         /// Max horizontal speed of the player.
         /// </summary>
-        public float maxSpeed = 5;
+        public float maxSpeed = 5; // made not public
         /// <summary>
         /// Initial jump velocity at the start of a jump.
         /// </summary>
-        public float jumpTakeOffSpeed = 10;
+        public float jumpTakeOffSpeed = 10; // made not public
 
         public JumpState jumpState = JumpState.Grounded;
         private bool stopJump;
@@ -45,8 +48,6 @@ namespace Platformer.Mechanics
         readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public Bounds Bounds => collider2d.bounds;
-
-        public bool timeWorld = false;
 
         bool invert = false;
 
