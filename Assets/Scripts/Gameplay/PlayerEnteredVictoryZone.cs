@@ -23,7 +23,6 @@ namespace Platformer.Gameplay
             model.player.animator.SetTrigger("victory");
             // model.player.controlEnabled = false;
             SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings);
-            
         }
     }
 }
