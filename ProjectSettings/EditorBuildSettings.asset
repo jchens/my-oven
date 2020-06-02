@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/space-1.unity
     guid: 73b849c30a2c0489c9c1ea63424ac640
+  - enabled: 1
+    path: Assets/Scenes/TimeWorld-2.unity
+    guid: 6d2c35a873b1e4d59ad30033292cf240
   m_configObjects: {}

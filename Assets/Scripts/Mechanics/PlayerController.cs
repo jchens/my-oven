@@ -25,6 +25,7 @@ namespace Platformer.Mechanics
         public bool isSpaceWorld = false;
         public bool goodguys = false;
         public bool timeWorld = false;
+        public bool timeWorld_2 = false;
 
         /// <summary>
         /// Max horizontal speed of the player.
@@ -54,6 +55,7 @@ namespace Platformer.Mechanics
         public Bounds Bounds => collider2d.bounds;
 
         bool invert = false;
+        float multiply = (float)1.0;
         int time = 10;
 
         void Awake()
@@ -87,6 +89,9 @@ namespace Platformer.Mechanics
                 timeText.text = "10";
                 InvokeRepeating("Invert", 10f, 10f);
                 InvokeRepeating("Timer", 0f, 1f);
+            } else if(timeWorld_2) {
+                InvokeRepeating("Speed", 10f, 10f);
+                InvokeRepeating("Timer", 0f, 1f);
             }
             
             InvokeRepeating("hideHint", 10f, 1000f);
@@ -100,6 +105,11 @@ namespace Platformer.Mechanics
                 if(invert) {
                     move.x = -1 * move.x;
                 }
+
+                if(timeWorld_2) {
+                    move.x = multiply * move.x;
+                } 
+
                 if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
                     jumpState = JumpState.PrepareToJump;
                 else if (Input.GetButtonUp("Jump"))
@@ -185,6 +195,11 @@ namespace Platformer.Mechanics
             Debug.Log("hello");
         }
 
+        void Speed()
+        {
+            multiply = multiply + (float)0.5;
+        }
+
         void Timer()
         {
             timeText.text = time.ToString();
@@ -219,6 +234,9 @@ namespace Platformer.Mechanics
                 break;
                 case 4:
                 hintText.text = "day 1: topsy turvy";
+                break;
+                case 5:
+                hintText.text = "day 2: gotta go fast, faster, fastest";
                 break;
             }
         }
