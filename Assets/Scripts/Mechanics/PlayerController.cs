@@ -69,6 +69,10 @@ namespace Platformer.Mechanics
                 spriteRenderer.flipY = true;
                 Physics2D.gravity = new Vector2(0f, 9.81f);
             }
+            if (!isSpaceWorld) {
+                spriteRenderer.flipY = false;
+                Physics2D.gravity = new Vector2(0f, -9.81f);
+            }
             animator = GetComponent<Animator>();
 
             if(timeWorld) {
