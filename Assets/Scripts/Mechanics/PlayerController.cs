@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Platformer.Gameplay;
 using static Platformer.Core.Simulation;
 using Platformer.Model;
@@ -41,6 +42,8 @@ namespace Platformer.Mechanics
         public Health health;
         public bool controlEnabled = true;
 
+        public Text timeText;
+
         bool jump;
         Vector2 move;
         SpriteRenderer spriteRenderer;
@@ -50,9 +53,12 @@ namespace Platformer.Mechanics
         public Bounds Bounds => collider2d.bounds;
 
         bool invert = false;
+        int time = 10;
+
 
         void Awake()
         {
+            
             health = GetComponent<Health>();
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
@@ -66,7 +72,9 @@ namespace Platformer.Mechanics
             animator = GetComponent<Animator>();
 
             if(timeWorld) {
+                timeText.text = "10";
                 InvokeRepeating("Invert", 10f, 10f);
+                InvokeRepeating("Timer", 0f, 1f);
             }
         }
 
@@ -161,6 +169,15 @@ namespace Platformer.Mechanics
         {
             invert = !invert;
             Debug.Log("hello");
+        }
+
+        void Timer()
+        {
+            timeText.text = time.ToString();
+            time = time - 1;
+            if(time == 0) {
+                time = 10;
+            }
         }
 
         public enum JumpState
