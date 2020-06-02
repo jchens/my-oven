@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level0.unity
     guid: 3cb86cac5c6c0476a9b607d96eca27d9
   - enabled: 1
-    path: Assets/Scenes/dystopia-1.unity
+    path: Assets/Scenes/hops-1.unity
     guid: f583ae27ade0f4dcf9bc7f63265ec00b
   - enabled: 1
     path: Assets/Scenes/TimeWorld-1.unity
