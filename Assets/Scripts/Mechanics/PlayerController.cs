@@ -58,22 +58,29 @@ namespace Platformer.Mechanics
 
         void Awake()
         {
-            
             health = GetComponent<Health>();
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            animator = GetComponent<Animator>();
             Scene currentScene = SceneManager.GetActiveScene();
-            isSpaceWorld = currentScene.name == "space-1";
-            if (isSpaceWorld) {
+            if (currentScene.name == "space-1") {
                 spriteRenderer.flipY = true;
                 Physics2D.gravity = new Vector2(0f, 9.81f);
             }
-            if (!isSpaceWorld) {
+            else if (currentScene.name == "space-2") {
+                spriteRenderer.flipX = true;
+                Physics2D.gravity = new Vector2(9.81f, 0f);
+            }
+            else if (currentScene.name == "space-3") {
+                spriteRenderer.flipX = true;
+                Physics2D.gravity = new Vector2(-9.81f, 0f);
+            }
+            else {
                 spriteRenderer.flipY = false;
                 Physics2D.gravity = new Vector2(0f, -9.81f);
             }
-            animator = GetComponent<Animator>();
+            
 
             if(timeWorld) {
                 timeText.text = "10";
