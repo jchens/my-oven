@@ -43,6 +43,7 @@ namespace Platformer.Mechanics
         public bool controlEnabled = true;
 
         public Text timeText;
+        public Text hintText;
 
         bool jump;
         Vector2 move;
@@ -55,10 +56,9 @@ namespace Platformer.Mechanics
         bool invert = false;
         int time = 10;
 
-
         void Awake()
         {
-            
+            updateHint();
             health = GetComponent<Health>();
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
@@ -76,6 +76,8 @@ namespace Platformer.Mechanics
                 InvokeRepeating("Invert", 10f, 10f);
                 InvokeRepeating("Timer", 0f, 1f);
             }
+            
+            InvokeRepeating("hideHint", 10f, 1000f);
         }
 
         protected override void Update()
@@ -177,6 +179,35 @@ namespace Platformer.Mechanics
             time = time - 1;
             if(time == 0) {
                 time = 10;
+            }
+        }
+
+        void hideHint()
+        {
+            hintText.text = "";
+        }
+
+
+        void updateHint()
+        {
+            int index = SceneManager.GetActiveScene().buildIndex;
+            switch(index)
+            {
+                case 0:
+                hintText.text = "day 1";
+                break;
+                case 1:
+                hintText.text = "day 1: all out of hops";
+                break;
+                case 2:
+                hintText.text = "day 1: reverse reverse every 10 seconds";
+                break;
+                case 3:
+                hintText.text = "day 1: blobs are friends not food";
+                break;
+                case 4:
+                hintText.text = "day 1: topsy turvy";
+                break;
             }
         }
 
