@@ -231,25 +231,27 @@ namespace Platformer.Mechanics
 
         void updateHint()
         {
-            int index = SceneManager.GetActiveScene().buildIndex;
-            switch(index)
+            Scene currentScene = SceneManager.GetActiveScene();
+            string name = currentScene.name;
+            
+            switch(name)
             {
-                case 0:
+                case "Level0":
                 hintText.text = "day 1";
                 break;
-                case 1:
+                case "hops-1":
                 hintText.text = "day 1: all out of hops";
                 break;
-                case 2:
+                case "TimeWorld-1":
                 hintText.text = "day 1: reverse reverse every 10 seconds";
                 break;
-                case 3:
+                case "fishes-1":
                 hintText.text = "day 1: blobs are friends not food";
                 break;
-                case 4:
+                case "space-1":
                 hintText.text = "day 1: topsy turvy";
                 break;
-                case 5:
+                case "TimeWorld-2":
                 hintText.text = "day 2: gotta go fast, faster, fastest";
                 break;
             }
