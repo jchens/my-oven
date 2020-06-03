@@ -6,18 +6,57 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/intro-1.unity
+    guid: cffb6b3b5b46341c9b4efa73525d3a2f
+  - enabled: 1
+    path: Assets/Scenes/intro-2.unity
+    guid: df74e04fdc9e0479bb3815778998940f
+  - enabled: 1
+    path: Assets/Scenes/onboarding-1.unity
+    guid: a9987dc11a031424891d56671c01c745
+  - enabled: 1
+    path: Assets/Scenes/onboarding-2.unity
+    guid: 9cfd9e53d50714a4f909a12623cf5662
+  - enabled: 1
+    path: Assets/Scenes/onboarding-3.unity
+    guid: 49af68a1d21e9477db2ac8102e695030
+  - enabled: 1
+    path: Assets/Scenes/onboarding-4.unity
+    guid: 9e58970b3a5ec474084666a910835afb
+  - enabled: 0
     path: Assets/Scenes/Level0.unity
     guid: 3cb86cac5c6c0476a9b607d96eca27d9
+  - enabled: 1
+    path: Assets/Scenes/TimeWorld-1.unity
+    guid: 8596a07717c7544079a7961a8d9aaf57
+  - enabled: 1
+    path: Assets/Scenes/TimeWorld-2.unity
+    guid: 6d2c35a873b1e4d59ad30033292cf240
   - enabled: 1
     path: Assets/Scenes/hops-1.unity
     guid: f583ae27ade0f4dcf9bc7f63265ec00b
   - enabled: 1
-    path: Assets/Scenes/TimeWorld-1.unity
-    guid: 8596a07717c7544079a7961a8d9aaf57
+    path: Assets/Scenes/hops-2.unity
+    guid: 42cff0362904f44419a49157fb7c1f76
+  - enabled: 1
+    path: Assets/Scenes/hops-3.unity
+    guid: ea4493f93cb3b4d34ad6f7913ad7754f
+  - enabled: 1
+    path: Assets/Scenes/hops-4.unity
+    guid: 2c49179bfd7fe47499d25384dfcb5698
   - enabled: 1
     path: Assets/Scenes/fishes-1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/space-1.unity
     guid: 73b849c30a2c0489c9c1ea63424ac640
+  - enabled: 1
+    path: Assets/Scenes/space-2.unity
+    guid: 570e6269a207f48f38136d8435267552
+  - enabled: 1
+    path: Assets/Scenes/space-3.unity
+    guid: dc18586f90fd64914a4eb7d231dfab98
+  - enabled: 1
+    path: Assets/Scenes/space-4.unity
+    guid: c44d79cd1ae9b421abb77284cf789fb2
   m_configObjects: {}
