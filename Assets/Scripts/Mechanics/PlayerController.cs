@@ -67,23 +67,21 @@ namespace Platformer.Mechanics
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
             Scene currentScene = SceneManager.GetActiveScene();
-            if (currentScene.name == "space-1") {
+            if (currentScene.name == "space-1" || currentScene.name == "space-2" || currentScene.name == "space-3") {
                 spriteRenderer.flipY = true;
                 Physics2D.gravity = new Vector2(0f, 9.81f);
-            }
-            else if (currentScene.name == "space-2") {
-                spriteRenderer.flipX = true;
-                Physics2D.gravity = new Vector2(9.81f, 0f);
-            }
-            else if (currentScene.name == "space-3") {
-                spriteRenderer.flipX = true;
-                Physics2D.gravity = new Vector2(-9.81f, 0f);
             }
             else {
                 spriteRenderer.flipY = false;
                 Physics2D.gravity = new Vector2(0f, -9.81f);
             }
-            
+
+            if (currentScene.name == "space-4") {
+                timeText.text = "3";
+                time = 3;
+                InvokeRepeating("FlipGravity", 3f, 3f);
+                InvokeRepeating("SpaceTimer", 0f, 1f);
+            }
 
             if(timeWorld) {
                 timeText.text = "10";
@@ -189,6 +187,13 @@ namespace Platformer.Mechanics
             targetVelocity = move * maxSpeed;
         }
 
+        void FlipGravity() {
+            float dir = Physics2D.gravity.y;
+            Physics2D.gravity = new Vector2(0f, -dir);
+            isSpaceWorld = !isSpaceWorld;
+            spriteRenderer.flipY = !spriteRenderer.flipY;
+        }
+
         void Invert()
         {
             invert = !invert;
@@ -206,6 +211,15 @@ namespace Platformer.Mechanics
             time = time - 1;
             if(time == 0) {
                 time = 10;
+            }
+        }
+
+        void SpaceTimer()
+        {
+            timeText.text = time.ToString();
+            time = time - 1;
+            if(time == 0) {
+                time = 3;
             }
         }
 
