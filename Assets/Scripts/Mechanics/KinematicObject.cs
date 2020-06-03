@@ -90,7 +90,10 @@ namespace Platformer.Mechanics
             contactFilter.useLayerMask = true;
 
             Scene currentScene = SceneManager.GetActiveScene();
-            spaceWorld = currentScene.name == "space-1";
+            spaceWorld = currentScene.name == "space-1" || currentScene.name == "space-2" || currentScene.name == "space-3";
+            if (currentScene.name == "space-4") {
+                InvokeRepeating("Flip", 3f, 3f);
+            }
         }
 
         protected virtual void Update()
@@ -111,7 +114,7 @@ namespace Platformer.Mechanics
                 if (velocity.y > 0)
                     velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
                 else
-                    velocity += Physics2D.gravity * Time.deltaTime;
+                    velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
             } else {
                 if (velocity.y < 0)
                     velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
@@ -196,5 +199,8 @@ namespace Platformer.Mechanics
             body.position = body.position + move.normalized * distance;
         }
 
+        void Flip() {
+            spaceWorld = !spaceWorld;
+        }
     }
 }
