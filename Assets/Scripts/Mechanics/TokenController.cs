@@ -4,9 +4,9 @@ namespace Platformer.Mechanics
 {
     /// <summary>
     /// This class animates all token instances in a scene.
-    /// This allows a single update call to animate hundreds of sprite 
+    /// This allows a single update call to animate hundreds of sprite
     /// animations.
-    /// If the tokens property is empty, it will automatically find and load 
+    /// If the tokens property is empty, it will automatically find and load
     /// all token instances in the scene at runtime.
     /// </summary>
     public class TokenController : MonoBehaviour
@@ -30,11 +30,14 @@ namespace Platformer.Mechanics
             //if tokens are not empty, they've been added at editor time.
             if (tokens.Length == 0)
                 FindAllTokensInScene();
-            //Register all tokens so they can work with this controller.
-            for (var i = 0; i < tokens.Length; i++)
-            {
-                tokens[i].tokenIndex = i;
-                tokens[i].controller = this;
+
+            if (tokens.Length > 0) {
+              //Register all tokens so they can work with this controller.
+              for (var i = 0; i < tokens.Length; i++)
+              {
+                  tokens[i].tokenIndex = i;
+                  tokens[i].controller = this;
+              }
             }
         }
 
