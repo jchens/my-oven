@@ -249,7 +249,16 @@ namespace Platformer.Mechanics
                 hintText.text = "day 1: blobs are friends not food";
                 break;
                 case "space-1":
-                hintText.text = "day 1: topsy turvy";
+                hintText.text = "topsy turvy";
+                break;
+                case "space-2":
+                hintText.text = "";
+                break;
+                case "space-3":
+                hintText.text = "the upside down";
+                break;
+                case "space-4":
+                hintText.text = "flip flip";
                 break;
                 case "TimeWorld-2":
                 hintText.text = "day 2: gotta go fast, faster, fastest";
