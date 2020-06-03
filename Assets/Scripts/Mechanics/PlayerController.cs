@@ -91,8 +91,8 @@ namespace Platformer.Mechanics
                 InvokeRepeating("Speed", 10f, 10f);
                 InvokeRepeating("Timer", 0f, 1f);
             }
-            
-            InvokeRepeating("hideHint", 10f, 1000f);
+
+            // InvokeRepeating("hideHint", 10f, 1000f);
         }
 
         protected override void Update()
@@ -106,7 +106,7 @@ namespace Platformer.Mechanics
 
                 if(timeWorld_2) {
                     move.x = multiply * move.x;
-                } 
+                }
 
                 if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
                     jumpState = JumpState.PrepareToJump;
@@ -233,7 +233,7 @@ namespace Platformer.Mechanics
         {
             Scene currentScene = SceneManager.GetActiveScene();
             string name = currentScene.name;
-            
+
             switch(name)
             {
                 case "Level0":
