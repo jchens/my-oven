@@ -204,8 +204,8 @@ namespace Platformer.Mechanics
         {
             multiply = multiply + (float)0.1;
 
-            if(multiply > 2.0) {
-                multiply = (float)2.0;
+            if(multiply > 1.5) {
+                multiply = (float)1.5;
             }
         }
 
