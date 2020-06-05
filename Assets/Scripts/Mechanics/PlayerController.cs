@@ -91,8 +91,8 @@ namespace Platformer.Mechanics
                 InvokeRepeating("Speed", 10f, 10f);
                 InvokeRepeating("Timer", 0f, 1f);
             }
-            
-            InvokeRepeating("hideHint", 10f, 1000f);
+
+            // InvokeRepeating("hideHint", 10f, 1000f);
         }
 
         protected override void Update()
@@ -106,7 +106,7 @@ namespace Platformer.Mechanics
 
                 if(timeWorld_2) {
                     move.x = multiply * move.x;
-                } 
+                }
 
                 if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
                     jumpState = JumpState.PrepareToJump;
@@ -202,7 +202,11 @@ namespace Platformer.Mechanics
 
         void Speed()
         {
-            multiply = multiply + (float)0.5;
+            multiply = multiply + (float)0.1;
+
+            if(multiply > 1.5) {
+                multiply = (float)1.5;
+            }
         }
 
         void Timer()
@@ -233,35 +237,64 @@ namespace Platformer.Mechanics
         {
             Scene currentScene = SceneManager.GetActiveScene();
             string name = currentScene.name;
-            
+
             switch(name)
             {
-                case "Level0":
-                hintText.text = "day 1";
+                case "intro-1":
+                hintText.text = "just another day of baking bread";
                 break;
+                case "intro-2":
+                hintText.text = "uh oh! looks like that was actually our time machine, not the oven... wonder where we're going?";
+                break;
+
+                case "onboarding-1":
+                hintText.text = "collect the crystal to refuel your time machine & go home!";
+                break;
+                case "onboarding-2":
+                hintText.text = "uh...let's try again. looks like i need some space for a jump";
+                break;
+                case "onboarding-3":
+                hintText.text = "maybe even a longer space?";
+                break;
+                case "onboarding-4":
+                hintText.text = "up & right at 'em'";
+                break;
+
                 case "hops-1":
-                hintText.text = "day 1: all out of hops";
+                hintText.text = "all out of hops";
                 break;
+                case "hops-2":
+                hintText.text = "goin' ghost";
+                break;
+                case "hops-3":
+                hintText.text = "goin'... alternate world?";
+                break;
+                case "hops-4":
+                hintText.text = "goin' back to normal... or are we?";
+                break;
+
                 case "TimeWorld-1":
-                hintText.text = "day 1: reverse reverse every 10 seconds";
+                hintText.text = "reverse reverse";
                 break;
+                case "TimeWorld-2":
+                hintText.text = "gotta go fast, faster, fastest";
+                break;
+
                 case "fishes-1":
-                hintText.text = "day 1: blobs are friends not food";
+                hintText.text = "red = bad";
                 break;
+
                 case "space-1":
                 hintText.text = "topsy turvy";
                 break;
                 case "space-2":
-                hintText.text = "";
+                hintText.text = "space exploration";
                 break;
                 case "space-3":
                 hintText.text = "the upside down";
                 break;
                 case "space-4":
                 hintText.text = "flip flip";
-                break;
-                case "TimeWorld-2":
-                hintText.text = "day 2: gotta go fast, faster, fastest";
                 break;
             }
         }
