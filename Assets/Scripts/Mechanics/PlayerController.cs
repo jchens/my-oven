@@ -203,6 +203,10 @@ namespace Platformer.Mechanics
         void Speed()
         {
             multiply = multiply + (float)0.5;
+
+            if(multiply > 2.5) {
+                multiply = (float)2.5;
+            }
         }
 
         void Timer()
