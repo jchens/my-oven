@@ -255,7 +255,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &147844362
 PrefabInstance:
@@ -6136,7 +6136,7 @@ GameObject:
   - component: {fileID: 599453834}
   - component: {fileID: 599453833}
   m_Layer: 5
-  m_Name: Hints Canvas (1)
+  m_Name: Hints Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6636,6 +6636,11 @@ PrefabInstance:
     - target: {fileID: 212064061491315838, guid: 7d60c822c3f1b408ea7a00ecdb5e047a,
         type: 3}
       propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212064061491315838, guid: 7d60c822c3f1b408ea7a00ecdb5e047a,
+        type: 3}
+      propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15395,8 +15400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 110, y: -70}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 249.57, y: -134.73}
+  m_SizeDelta: {x: 439.1466, y: 159.45038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1902738638
 MonoBehaviour:
@@ -15419,11 +15424,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9aa35b91f0f5948808377e9db9fb1ff5, type: 3}
-    m_FontSize: 30
+    m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 90
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -15505,7 +15510,7 @@ Transform:
   m_Children:
   - {fileID: 742932004}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1946717926
 MonoBehaviour:
@@ -15754,7 +15759,7 @@ GameObject:
   - component: {fileID: 2102323037}
   - component: {fileID: 2102323036}
   m_Layer: 0
-  m_Name: Grid (1)
+  m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

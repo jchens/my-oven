@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MidgroundFiller
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 5bfb66baa66fb8249850422e5c04049c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.7019608, b: 0.6117647, a: 1}
   m_Transform:
     e00: 1
     e01: 0
