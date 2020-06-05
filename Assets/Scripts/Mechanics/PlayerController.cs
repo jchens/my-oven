@@ -284,7 +284,7 @@ namespace Platformer.Mechanics
                 hintText.text = "topsy turvy";
                 break;
                 case "space-2":
-                hintText.text = "TODO";
+                hintText.text = "space exploration";
                 break;
                 case "space-3":
                 hintText.text = "the upside down";
