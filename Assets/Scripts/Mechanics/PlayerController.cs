@@ -202,7 +202,7 @@ namespace Platformer.Mechanics
 
         void Speed()
         {
-            multiply = multiply + (float)0.5;
+            multiply = multiply + (float)0.1;
 
             if(multiply > 2.0) {
                 multiply = (float)2.0;
