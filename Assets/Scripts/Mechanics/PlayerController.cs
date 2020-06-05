@@ -237,7 +237,7 @@ namespace Platformer.Mechanics
             switch(name)
             {
                 case "intro-1":
-                hintText.text = "day 1";
+                hintText.text = "just another day of baking bread";
                 break;
                 case "intro-2":
                 hintText.text = "uh oh! looks like that was actually our time machine, not the oven... wonder where we're going?";
