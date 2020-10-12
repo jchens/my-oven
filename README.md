@@ -1,6 +1,7 @@
+## [Play the game for yourself here](https://connect.unity.com/mg/2d/oh-heck-the-oven-prototype)
+
 <img src='/cover.png?raw=true' title='a game about just trying to go back home' width='80%' alt='cover photo' />
 
-## [Play the game for yourself here](https://connect.unity.com/mg/2d/oh-heck-the-oven-prototype)
 A game about just trying to go back home
 
 ## About the game
