@@ -1,6 +1,7 @@
-# oh heck! my oven
+<img src='/cover.png?raw=true' title='a game about just trying to go back home' width='80%' alt='cover photo' />
 
-A game about just trying to go back home. [Play the game for yourself here.](https://connect.unity.com/mg/2d/oh-heck-the-oven-prototype)
+## [Play the game for yourself here](https://connect.unity.com/mg/2d/oh-heck-the-oven-prototype)
+A game about just trying to go back home
 
 ## About the game
 Your time machine is broken, keeping you stuck in a temporal loop! You left the oven on back at home, so you have to escape this loop as soon as possible!
@@ -10,7 +11,8 @@ Exploring is the key to solving the unknown mysteries of your time machine. Trav
 
 “Oh heck! My oven” is a 2D platformer where each level has the same format, but a different setting and added mechanic. Players can jump & move around initially, but that can all change depending on the level. The objective is to reach the end of each level while collecting a crystal for your time machine, until you’ve collected everything and can return home.
 
-<img src='/intro.gif?raw=true' title='Clip 1' width='50%' alt='Clip 1' /> <img src='/intro2.gif?raw=true' title='Clip 2' width='50%' alt='Clip 2' />
+<img src='/intro.gif?raw=true' title='Clip 1' width='90%' alt='Clip 1' />
+<img src='/intro2.gif?raw=true' title='Clip 2' width='90%' alt='Clip 2' />
 
 
 ## Process
