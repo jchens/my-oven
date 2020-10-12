@@ -16,4 +16,4 @@ Exploring is the key to solving the unknown mysteries of your time machine. Trav
 
 
 ## Process
-To learn more about all the iterations, map designs, and playtests we went through, check out this [article]([https://medium.com/game-design-fundamentals/oh-heck-my-oven-45a4b4d97b88).
+To learn more about all the iterations, map designs, and playtests we went through, check out this [article](https://medium.com/game-design-fundamentals/oh-heck-my-oven-45a4b4d97b88).
